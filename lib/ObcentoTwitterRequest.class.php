@@ -207,6 +207,7 @@ class ObcentoTwitterRequest
 			return '';
 		
 		ksort($parameters);
+		@array_walk($parameters, 'rawurlencode');
 		return '?' . $this->join_array($parameters, '%s=%s', '&');
 	}
 
