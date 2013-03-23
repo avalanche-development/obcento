@@ -1,6 +1,7 @@
 <?php
 
 require_once dirname(__FILE__) . '/ObcentoTwitterRequest.class.php';
+require_once dirname(__FILE__) . '/ObcentoTwitterValidateInput.class.php';
 
 
 /**
@@ -24,6 +25,8 @@ class ObcentoTwitter
 	 * $obcentoRequest Holds the request class after it is instantiated with the configs
 	 */
 	private $obcentoRequest;
+	
+	private $obcentoValidateInput;
 
 	/**
 	 * The constructor for this class
@@ -36,6 +39,7 @@ class ObcentoTwitter
 	public function __construct($consumer_key, $consumer_secret, $access_token, $access_token_secret)
 	{
 		$this->obcentoRequest = new ObcentoTwitterRequest($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+		$this->obcentoValidateInput new ObcentoValidateInput();
 	}
 
 
@@ -93,22 +97,22 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->check_count($count))
+		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
 			$params['count'] = $count;
 		
-		if($since_id !== NULL && $this->check_since_id($since_id))
+		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
 			$params['since_id'] = $since_id;
 		
-		if($max_id !== NULL && $this->check_max_id($max_id))
+		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
 			$params['max_id'] = $max_id;
 		
-		if($trim_user !== NULL && $this->check_trim_user($trim_user))
+		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
 			$params['trim_user'] = $trim_user;
 		
-		if($contributor_details !== NULL && $this->check_contributor_details($contributor_details))
+		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
 			$params['contributor_details'] = $contributor_details;
 		
-		if($include_entities !== NULL && $this->check_include_entities($include_entities))
+		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
 			$params['include_entities'] = $include_entities;
 		
 		$this->results = $this->obcentoRequest->
@@ -171,28 +175,28 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($screen_name !== NULL && $this->check_screen_name($screen_name))
+		if($screen_name !== NULL && $this->obcentoValidateInput->check_screen_name($screen_name))
 			$params['screen_name'] = $screen_name;
 		
-		if($since_id !== NULL && $this->check_since_id($since_id))
+		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
 			$params['since_id'] = $since_id;
 		
-		if($count !== NULL && $this->check_count($count))
+		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
 			$params['count'] = $count;
 		
-		if($max_id !== NULL && $this->check_max_id($max_id))
+		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
 			$params['max_id'] = $max_id;
 		
-		if($trim_user !== NULL && $this->check_trim_user($trim_user))
+		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
 			$params['trim_user'] = $trim_user;
 		
-		if($exclude_replies !== NULL && $this->check_exclude_replies($exclude_replies))
+		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
 			$params['exclude_replies'] = $exclude_replies;
 		
-		if($contributor_details !== NULL && $this->check_contributor_details($contributor_details))
+		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
 			$params['contributor_details'] = $contributor_details;
 		
-		if($include_rts !== NULL && $this->check_include_rts($include_rts))
+		if($include_rts !== NULL && $this->obcentoValidateInput->check_include_rts($include_rts))
 			$params['include_rts'] = $include_rts;
 		
 		$this->results = $this->obcentoRequest->
@@ -255,28 +259,28 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($user_id !== NULL && $this->check_user_id($user_id))
+		if($user_id !== NULL && $this->obcentoValidateInput->check_user_id($user_id))
 			$params['user_id'] = $user_id;
 		
-		if($since_id !== NULL && $this->check_since_id($since_id))
+		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
 			$params['since_id'] = $since_id;
 		
-		if($count !== NULL && $this->check_count($count))
+		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
 			$params['count'] = $count;
 		
-		if($max_id !== NULL && $this->check_max_id($max_id))
+		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
 			$params['max_id'] = $max_id;
 		
-		if($trim_user !== NULL && $this->check_trim_user($trim_user))
+		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
 			$params['trim_user'] = $trim_user;
 		
-		if($exclude_replies !== NULL && $this->check_exclude_replies($exclude_replies))
+		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
 			$params['exclude_replies'] = $exclude_replies;
 		
-		if($contributor_details !== NULL && $this->check_contributor_details($contributor_details))
+		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
 			$params['contributor_details'] = $contributor_details;
 		
-		if($include_rts !== NULL && $this->check_include_rts($include_rts))
+		if($include_rts !== NULL && $this->obcentoValidateInput->check_include_rts($include_rts))
 			$params['include_rts'] = $include_rts;
 		
 		$this->results = $this->obcentoRequest->
@@ -332,25 +336,25 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->check_count($count))
+		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
 			$params['count'] = $count;
 		
-		if($since_id !== NULL && $this->check_since_id($since_id))
+		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
 			$params['since_id'] = $since_id;
 		
-		if($max_id !== NULL && $this->check_max_id($max_id))
+		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
 			$params['max_id'] = $max_id;
 		
-		if($trim_user !== NULL && $this->check_trim_user($trim_user))
+		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
 			$params['trim_user'] = $trim_user;
 		
-		if($exclude_replies !== NULL && $this->check_exclude_replies($exclude_replies))
+		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
 			$params['exclude_replies'] = $exclude_replies;
 		
-		if($contributor_details !== NULL && $this->check_contributor_details($contributor_details))
+		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
 			$params['contributor_details'] = $contributor_details;
 		
-		if($include_entities !== NULL && $this->check_include_entities($include_entities))
+		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
 			$params['include_entities'] = $include_entities;
 		
 		$this->results = $this->obcentoRequest->
@@ -398,22 +402,22 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->check_count($count))
+		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
 			$params['count'] = $count;
 		
-		if($since_id !== NULL && $this->check_since_id($since_id))
+		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
 			$params['since_id'] = $since_id;
 		
-		if($max_id !== NULL && $this->check_max_id($max_id))
+		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
 			$params['max_id'] = $max_id;
 		
-		if($trim_user !== NULL && $this->check_trim_user($trim_user))
+		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
 			$params['trim_user'] = $trim_user;
 		
-		if($include_entities !== NULL && $this->check_include_entities($include_entities))
+		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
 			$params['include_entities'] = $include_entities;
 		
-		if($include_user_entities !== NULL && $this->check_include_user_entities($include_user_entities))
+		if($include_user_entities !== NULL && $this->obcentoValidateInput->check_include_user_entities($include_user_entities))
 			$params['include_user_entities'] = $include_user_entities;
 		
 		$this->results = $this->obcentoRequest->
@@ -444,153 +448,6 @@ class ObcentoTwitter
 	public function fetchArray()
 	{
 		return json_decode($this->results);
-	}
-
-	/**
-	 * check_count:
-	 *
-	 * This is a simple method to test a 'count' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_include_user_entities	This value you'd like to test
-	 * @return 	boolean 								If it's a valid user_name, TRUE is returned.
-	 */
-	private function check_count($input_count)
-	{
-		return is_int($input_count) && $input_count>=0;
-	}
-
-	/**
-	 * check_since_id:
-	 *
-	 * This is a simple method to test a 'since_id' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_include_user_entities	This value you'd like to test
-	 * @return 	boolean 								If it's a valid user_name, TRUE is returned.
-	 */
-	private function check_since_id($input_since_id)
-	{
-		return is_int($input_since_id) && $input_since_id>=0;
-	}
-
-	/**
-	 * check_max_id:
-	 *
-	 * This is a simple method to test a 'max_id' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_max_id	This value you'd like to test
-	 * @return 	boolean 				If it's a valid max_id, TRUE is returned.
-	 */
-	private function check_max_id($input_max_id)
-	{
-		return is_int($input_max_id) && $input_max_id>=0;
-	}
-
-	/**
-	 * check_trim_user:
-	 *
-	 * This is a simple method to test a 'trim_user' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_trim_user	This value you'd like to test
-	 * @return 	boolean 					If it's a valid trim_user, TRUE is returned.
-	 */
-	private function check_trim_user($input_trim_user)
-	{
-		return is_bool($input_trim_user);
-	}
-
-	/**
-	 * check_contributor_details:
-	 *
-	 * This is a simple method to test a 'contributor_details' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_contributor_details	This value you'd like to test
-	 * @return 	boolean 							If it's a valid contributor_details, TRUE is returned.
-	 */
-	private function check_contributor_details($input_contributor_details)
-	{
-		return is_bool($input_contributor_details);
-	}	
-
-	/**
-	 * check_include_entities:
-	 *
-	 * This is a simple method to test a 'include_entities' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_include_entities	This value you'd like to test
-	 * @return 	boolean 						If it's a valid include_entities, TRUE is returned.
-	 */
-	private function check_include_entities($input_include_entities)
-	{
-		return is_bool($input_include_entities);
-	}
-
-	/**
-	 * check_exclude_replies:
-	 *
-	 * This is a simple method to test a 'exclude_replies' to make sure it's valid.
-	 *
-	 * @since: 1.0
-	 * @param 	mixed 	$input_exclude_replies	This value you'd like to test
-	 * @return 	boolean 						If it's a valid exclude_replies, TRUE is returned.
-	 */
-	private function check_exclude_replies($input_exclude_replies)
-	{
-		return is_bool($input_exclude_replies);
-	}
-
-	/**
-	 * check_include_rts:
-	 *
-	 * This is a simple method to test a 'include_rts' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_include_rts	This value you'd like to test
-	 * @return 	boolean 					If it's a valid include_rts, TRUE is returned.
-	 */
-	private function check_include_rts($input_include_rts)
-	{
-		return is_bool($input_include_rts);
-	}
-
-	/**
-	 * check_screen_name:
-	 *
-	 * This is a simple method to test a 'screen_name' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_screen_name	This value you'd like to test
-	 * @return 	boolean 					If it's a valid screen_name, TRUE is returned.
-	 */
-	private function check_screen_name($input_screen_name)
-	{
-		//Stub!
-		return TRUE;
-	}
-
-	/**
-	 * check_user_id:
-	 *
-	 * This is a simple method to test a 'user_id' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_user_id	This value you'd like to test
-	 * @return 	boolean 				If it's a valid user_id, TRUE is returned.
-	 */
-	private function check_user_id($input_user_id)
-	{
-		//Stub!
-		return TRUE;
-	}
-
-	/**
-	 * check_include_user_entities:
-	 *
-	 * This is a simple method to test a 'include_user_entities' to make sure it's valid.
-	 *
-	 * @param 	mixed 	$input_include_user_entities	This value you'd like to test
-	 * @return 	boolean 								If it's a valid include_user_entities, TRUE is returned.
-	 */
-	private function check_include_user_entities($input_include_user_entities)
-	{
-		//Stub!
-		return TRUE;
 	}
 
 }
