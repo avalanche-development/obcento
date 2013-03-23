@@ -25,8 +25,6 @@ class ObcentoTwitter
 	 * $obcentoRequest Holds the request class after it is instantiated with the configs
 	 */
 	private $obcentoRequest;
-	
-	private $obcentoValidateInput;
 
 	/**
 	 * The constructor for this class
@@ -39,7 +37,6 @@ class ObcentoTwitter
 	public function __construct($consumer_key, $consumer_secret, $access_token, $access_token_secret)
 	{
 		$this->obcentoRequest = new ObcentoTwitterRequest($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-		$this->obcentoValidateInput new ObcentoValidateInput();
 	}
 
 
@@ -97,23 +94,14 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
-			$params['count'] = $count;
-		
-		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
-			$params['since_id'] = $since_id;
-		
-		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
-			$params['max_id'] = $max_id;
-		
-		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
-			$params['trim_user'] = $trim_user;
-		
-		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
-			$params['contributor_details'] = $contributor_details;
-		
-		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
-			$params['include_entities'] = $include_entities;
+		$params['count'] = $count;
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['trim_user'] = $trim_user;
+		$params['contributor_details'] = $contributor_details;
+		$params['include_entities'] = $include_entities;
+			
+		$param = $this->validateInputArray($params);
 		
 		$this->results = $this->obcentoRequest->
 			execute('statuses/mentions_timeline', $params);
@@ -175,29 +163,16 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($screen_name !== NULL && $this->obcentoValidateInput->check_screen_name($screen_name))
-			$params['screen_name'] = $screen_name;
-		
-		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
-			$params['since_id'] = $since_id;
-		
-		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
-			$params['count'] = $count;
-		
-		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
-			$params['max_id'] = $max_id;
-		
-		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
-			$params['trim_user'] = $trim_user;
-		
-		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
-			$params['exclude_replies'] = $exclude_replies;
-		
-		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
-			$params['contributor_details'] = $contributor_details;
-		
-		if($include_rts !== NULL && $this->obcentoValidateInput->check_include_rts($include_rts))
-			$params['include_rts'] = $include_rts;
+		$params['screen_name'] = $screen_name;
+		$params['since_id'] = $since_id;
+		$params['count'] = $count;
+		$params['max_id'] = $max_id;
+		$params['trim_user'] = $trim_user;
+		$params['exclude_replies'] = $exclude_replies;
+		$params['contributor_details'] = $contributor_details;
+		$params['include_rts'] = $include_rts;
+			
+		$param = $this->validateInputArray($params);
 		
 		$this->results = $this->obcentoRequest->
 			execute('statuses/user_timeline', $params);
@@ -259,29 +234,16 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($user_id !== NULL && $this->obcentoValidateInput->check_user_id($user_id))
-			$params['user_id'] = $user_id;
-		
-		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
-			$params['since_id'] = $since_id;
-		
-		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
-			$params['count'] = $count;
-		
-		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
-			$params['max_id'] = $max_id;
-		
-		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
-			$params['trim_user'] = $trim_user;
-		
-		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
-			$params['exclude_replies'] = $exclude_replies;
-		
-		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
-			$params['contributor_details'] = $contributor_details;
-		
-		if($include_rts !== NULL && $this->obcentoValidateInput->check_include_rts($include_rts))
-			$params['include_rts'] = $include_rts;
+		$params['user_id'] = $user_id;
+		$params['since_id'] = $since_id;
+		$params['count'] = $count;
+		$params['max_id'] = $max_id;
+		$params['trim_user'] = $trim_user;
+		$params['exclude_replies'] = $exclude_replies;
+		$params['contributor_details'] = $contributor_details;
+		$params['include_rts'] = $include_rts;
+			
+		$param = $this->validateInputArray($params);
 		
 		$this->results = $this->obcentoRequest->
 			execute('statuses/user_timeline', $params);
@@ -336,26 +298,15 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
-			$params['count'] = $count;
-		
-		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
-			$params['since_id'] = $since_id;
-		
-		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
-			$params['max_id'] = $max_id;
-		
-		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
-			$params['trim_user'] = $trim_user;
-		
-		if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
-			$params['exclude_replies'] = $exclude_replies;
-		
-		if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
-			$params['contributor_details'] = $contributor_details;
-		
-		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
-			$params['include_entities'] = $include_entities;
+		$params['count'] = $count;
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['trim_user'] = $trim_user;
+		$params['exclude_replies'] = $exclude_replies;
+		$params['contributor_details'] = $contributor_details;
+		$params['include_entities'] = $include_entities;
+			
+		$param = $this->validateInputArray($params);
 		
 		$this->results = $this->obcentoRequest->
 			execute('statuses/home_timeline', $params);
@@ -402,28 +353,565 @@ class ObcentoTwitter
 	{
 		$params = array();
 		
-		if($count !== NULL && $this->obcentoValidateInput->check_count($count))
-			$params['count'] = $count;
+		$params['count'] = $count;
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['trim_user'] = $trim_user;
+		$params['include_entities'] = $include_entities;
+		$params['include_user_entities'] = $include_user_entities;
 		
-		if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
-			$params['since_id'] = $since_id;
-		
-		if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
-			$params['max_id'] = $max_id;
-		
-		if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
-			$params['trim_user'] = $trim_user;
-		
-		if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
-			$params['include_entities'] = $include_entities;
-		
-		if($include_user_entities !== NULL && $this->obcentoValidateInput->check_include_user_entities($include_user_entities))
-			$params['include_user_entities'] = $include_user_entities;
+		$param = $this->validateInputArray($params);
 		
 		$this->results = $this->obcentoRequest->
 			execute('statuses/retweets_of_me', $params);
 		
 		return $this;
+	}
+	
+	
+	/**
+	 * getRetweetsByTweet
+	 *
+	 * Returns up to 100 of the first retweets of a given tweet.
+	 *
+	 *
+	 * @param int $id	The numerical ID of the desired status. (Required)
+	 *
+	 * @param int $count	Specifies the number of records to retrieve. Must be less than or equal to 100. (Optional)
+	 *
+	 * @param boolean $trim_user	When set to true, each tweet returned in a timeline will include a user object including only the status authors
+	 *								numerical ID. Omit this parameter to receive the complete user object.(Optional)
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getRetweetsByTweet(
+						   $id		 ,
+		                $count = NULL,
+		            $trim_user = NULL
+	)
+	{
+		$params = array();
+		
+		//validate
+		
+		$params['id'] = $id;
+		$params['count'] = $count;
+		$params['trim_user'] = $trim_user;
+		
+		$param = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('statuses/retweets/'.$id, $params);
+		
+		return $this;
+	}
+	
+	/**
+	 * getSingleTweetById
+	 *
+	 * Returns a single Tweet, specified by the id parameter. The Tweet's author will also be embedded within the tweet.
+	 *
+	 * @param int $id	The numerical ID of the desired Tweet.
+	 *
+	 * @param boolean $trim_user	When set to true, each tweet returned in a timeline will include a user object including only the status authors
+	 *								numerical ID. Omit this parameter to receive the complete user object.(Optional)
+	 *
+	 * @param boolean $include_my_retweet	When set to either true, t or 1, any Tweets returned that have been retweeted by the 
+	 *										authenticating user will include an additional current_user_retweet node, containing 
+	 *										the ID of the source status for the retweet.
+	 *
+	 * @param boolean $include_user_entities	The user entities node will be disincluded when set to false.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getSingleTweetById(
+						   $id		 ,
+		            $trim_user = NULL,
+		   $include_my_retweet = NULL,
+		     $include_entities = NULL
+	)
+	{
+		$params = array();
+		
+		//validate!
+		
+		$params['id'] = $id;
+		$params['trim_user'] = $trim_user;
+		$params['include_my_retweet'] = $include_my_retweet;
+		$params['include_entities'] = $include_entities;
+		
+		$param = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('statuses/show/'.$id, $params);
+		
+		return $this;
+	}
+	
+	/**
+	 * getOEmbedById:
+	 *
+	 * Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed
+	 * specification for information about the response format.
+	 *
+	 * While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the 
+	 * appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Requirements. Do not 
+	 * rely on any class or id parameters to stay constant in the returned markup.
+	 *
+	 * @param int $id	The Tweet/status ID to return embed code for.
+	 *
+	 * @param int $maxwidth	The maximum width in pixels that the embed should be rendered at. This value is constrained 
+	 *						to be between 250 and 550 pixels.
+	 *
+	 * @param boolean $hide_media	Specifies whether the embedded Tweet should automatically expand images which were 
+	 *								uploaded via POST statuses/update_with_media. When set to either true, t or 1 images
+	 *								will not be expanded. Defaults to false.
+	 *
+	 * @param boolean $hide_thread	Specifies whether the embedded Tweet should automatically show the original message 
+	 *								in the case that the embedded Tweet is a reply. When set to either true, t or 1 the 
+	 *								original Tweet will not be shown. Defaults to false.
+	 *
+	 * @param boolean $omit_script	Specifies whether the embedded Tweet HTML should include a <script> element pointing to
+	 *								widgets.js. In cases where a page already includes widgets.js, setting this value to true 
+	 *								will prevent a redundant script element from being included. When set to either true the
+	 *								<script> element will not be included in the embed HTML, meaning that pages must include 
+	 *								a reference to widgets.js manually. Defaults to false.
+	 *
+	 * @param string $align		Specifies whether the embedded Tweet should be left aligned, right aligned, or centered 
+	 *							in the page. Valid values are left, right, center, and none. Defaults to none, meaning 
+	 *							no alignment styles are specified for the Tweet.
+	 *
+	 * @param string $related	A value for the TWT related parameter, as described in Web Intents. This value will be 
+	 *							forwarded to all Web Intents calls.
+	 *							Example Values: twitterapi,twittermedia,twitter
+	 *
+	 * @param string $lang	Language code for the rendered embed. This will affect the text and localization of the 
+	 *						rendered HTML.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getOEmbedById(
+				$id		   ,
+		   $maxwidth = NULL,
+		 $hide_media = NULL,
+		$hide_thread = NULL,
+		$omit_script = NULL,
+		      $align = NULL,
+		    $related = NULL,
+		       $lang = NULL
+	)
+	{
+	
+		$params = array();
+		
+		//validate!
+	
+		$params['id'] = $id;
+		$params['maxwidth'] = $maxwidth;
+		$params['hide_media'] = $hide_media;
+		$params['hide_thread'] = $hide_thread;
+		$params['omit_script'] = $omit_script;
+		$params['align'] = $align;
+		$params['related'] = $related;
+		$params['lang'] = $lang;
+	
+		$params = $this->validateInputArray($params);
+	
+		$this->results = $this->obcentoRequest->
+			execute('statuses/oembed', $params);
+			
+		return $this;
+	}
+	
+	
+	
+	/**
+	 * getOEmbedByURL:
+	 *
+	 * Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed
+	 * specification for information about the response format.
+	 *
+	 * While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be aware that the 
+	 * appearance of the rendered Tweet may change over time to be consistent with Twitter's Display Requirements. Do not 
+	 * rely on any class or id parameters to stay constant in the returned markup.
+	 *
+	 * @param int $url	The URL of the Tweet/status to be embedded.
+	 *					Example Values:
+	 *						To embed the Tweet at https://twitter.com/#!/twitter/status/99530515043983360, use:
+	 *							https%3A%2F%2Ftwitter.com%2F%23!%2Ftwitter%2Fstatus%2F99530515043983360
+	 *
+	 *						To embed the Tweet at https://twitter.com/twitter/status/99530515043983360, use:
+	 *							https%3A%2F%2Ftwitter.com%2Ftwitter%2Fstatus%2F99530515043983360
+	 *
+	 * @param int $maxwidth	The maximum width in pixels that the embed should be rendered at. This value is constrained 
+	 *						to be between 250 and 550 pixels.
+	 *
+	 * @param boolean $hide_media	Specifies whether the embedded Tweet should automatically expand images which were 
+	 *								uploaded via POST statuses/update_with_media. When set to either true, t or 1 images
+	 *								will not be expanded. Defaults to false.
+	 *
+	 * @param boolean $hide_thread	Specifies whether the embedded Tweet should automatically show the original message 
+	 *								in the case that the embedded Tweet is a reply. When set to either true, t or 1 the 
+	 *								original Tweet will not be shown. Defaults to false.
+	 *
+	 * @param boolean $omit_script	Specifies whether the embedded Tweet HTML should include a <script> element pointing to
+	 *								widgets.js. In cases where a page already includes widgets.js, setting this value to true 
+	 *								will prevent a redundant script element from being included. When set to either true the
+	 *								<script> element will not be included in the embed HTML, meaning that pages must include 
+	 *								a reference to widgets.js manually. Defaults to false.
+	 *
+	 * @param string $align		Specifies whether the embedded Tweet should be left aligned, right aligned, or centered 
+	 *							in the page. Valid values are left, right, center, and none. Defaults to none, meaning 
+	 *							no alignment styles are specified for the Tweet.
+	 *
+	 * @param string $related	A value for the TWT related parameter, as described in Web Intents. This value will be 
+	 *							forwarded to all Web Intents calls.
+	 *							Example Values: twitterapi,twittermedia,twitter
+	 *
+	 * @param string $lang	Language code for the rendered embed. This will affect the text and localization of the 
+	 *						rendered HTML.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getOEmbedByURL(
+				$url	   ,
+		   $maxwidth = NULL,
+		 $hide_media = NULL,
+		$hide_thread = NULL,
+		$omit_script = NULL,
+		      $align = NULL,
+		    $related = NULL,
+		       $lang = NULL
+	)
+	{
+	
+		$params = array();
+		
+		//validate!
+	
+		$params['url'] = $url;
+		$params['maxwidth'] = $maxwidth;
+		$params['hide_media'] = $hide_media;
+		$params['hide_thread'] = $hide_thread;
+		$params['omit_script'] = $omit_script;
+		$params['align'] = $align;
+		$params['related'] = $related;
+		$params['lang'] = $lang;
+	
+		$params = $this->validateInputArray($params);
+	
+		$this->results = $this->obcentoRequest->
+			execute('statuses/oembed', $params);
+			
+		return $this;
+	}
+	
+	
+	/**
+	 */
+	public function getSearchTweets(
+					   $q		,
+				 $geocode = NULL,
+					$lang = NULL,
+				  $locale = NULL,
+			 $result_type = NULL,
+				   $count = NULL,
+				   $until = NULL,
+				$since_id = NULL,
+				  $max_id = NULL,
+		$include_entities = NULL,
+				$callback = NULL
+	)
+	{
+	
+		$params = array();
+		
+		//validate!
+	
+		$params['q'] = $q;
+		$params['geocode'] = $geocode;
+		$params['lang'] = $lang;
+		$params['locale'] = $locale;
+		$params['result_type'] = $result_type;
+		$params['count'] = $count;
+		$params['until'] = $until;
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['include_entities'] = $include_entities;
+		$params['callback'] = $callback;
+		
+		$params = $this->validateInputArray($params);
+	
+		$this->results = $this->obcentoRequest->
+			execute('search/tweets', $params);
+		
+		return $this;
+	}
+	
+	
+	//-------------------- Skipping the streaming methods for now
+	
+	
+	/**
+	 */
+	public function getDirectMessages(
+				$since_id = NULL,
+				  $max_id = NULL,
+				   $count = NULL,
+		$include_entities = NULL,
+			 $skip_status = NULL
+	)
+	{
+		$params = array();
+		
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['count'] = $count;
+		$params['include_entities'] = $include_entities;
+		$params['skip_status'] = $skip_status;
+		
+		$params = $this->validateInputArray($params);
+	
+		$this->results = $this->obcentoRequest->
+			execute('direct_messages', $params);
+		
+		return $this;
+	}
+	
+	
+	/**
+	 */
+	public function getDirectMessagesSent(
+				$since_id = NULL,
+				  $max_id = NULL,
+				   $count = NULL,
+					$page = NULL,
+		$include_entities = NULL
+	)
+	{
+		$params = array();
+	
+		$params['since_id'] = $since_id;
+		$params['max_id'] = $max_id;
+		$params['count'] = $count;
+		$params['page'] = $page
+		$params['include_entities'] = $include_entities;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('direct_messages/sent', $params);
+			
+		return $this;
+	}
+	
+	
+	/**
+	 * getSingleDirectMessage:
+	 *
+	 * Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request,
+	 * this method will include the user objects of the sender and recipient.
+	 *
+	 * Important: This method requires an access token with RWD (read, write & direct message) permissions. Consult
+	 * The Application Permission Model for more information.
+	 *
+	 * @param int $id	The ID of the direct message. Example Values: 587424932
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getSingleDirectMessage($id)
+	{
+		$params = array();
+		
+		//validate!
+	
+		$params['id'] = $id;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('direct_messages/show', $params);
+		
+		return $this;
+	}
+	
+	
+	/**
+	 *
+	 *
+	 * Returns a collection of user_ids that the currently authenticated user does not want to receive retweets from.
+	 *
+	 * @param boolean $stringify_ids	Many programming environments will not consume our ids due to their size. 
+	 *									Provide this option to have ids returned as strings instead. Read more about 
+	 *									Twitter IDs, JSON and Snowflake. This parameter is especially important to 
+	 *									use in Javascript environments.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getBlockedRetweetIds($stringify_ids)
+	{
+		$params = array();
+		
+		//validate!
+	
+		$params['stringify_ids'] = $stringify_ids;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('friendships/no_retweets/ids', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 */
+	public function getFriendsIdsByUserId(
+			  $user_id = NULL,
+			   $cursor = NULL,
+		$stringify_ids = NULL,
+				$count = NULL
+	)
+	{
+		$params = array();
+	
+		$params['user_id'] = $user_id;
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+		$params['count'] = $count;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('friendships/friends/ids', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 */
+	public function getFriendsIdsByScreenName(
+		  $screen_name = NULL,
+			   $cursor = NULL,
+		$stringify_ids = NULL,
+				$count = NULL
+	)
+	{
+		$params = array();
+	
+		$params['user_id'] = $user_id;
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+		$params['count'] = $count;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('followers/ids', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 */
+	public function getFollowersIdsByUserId(
+			  $user_id = NULL,
+			   $cursor = NULL,
+		$stringify_ids = NULL,
+				$count = NULL
+	)
+	{
+		$params = array();
+	
+		$params['user_id'] = $user_id;
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+		$params['count'] = $count;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('followers/ids', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 */
+	public function getFollowersIdsByScreenName(
+		  $screen_name = NULL,
+			   $cursor = NULL,
+		$stringify_ids = NULL,
+				$count = NULL
+	)
+	{
+		$params = array();
+	
+		$params['screen_name'] = $screen_name;
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+		$params['count'] = $count;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('friendships/friends/ids', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 * getFriendshipsLookupByScreenName:
+	 *
+	 * Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or 
+	 * user_ids provided. Values for connections can be: following, following_requested, followed_by, none.
+	 *
+	 * @param string screen_name	A comma separated list of screen names, up to 100 are allowed in a single request.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getFriendshipsLookupByScreenName($screen_name)
+	{
+		$params = array();
+	
+		$params['screen_name'] = $screen_name;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('friendships/lookup', $params);
+		
+		return $this; 
+	}
+	
+	
+	/**
+	 * getFriendshipsLookupByUserId:
+	 *
+	 * Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or 
+	 * user_ids provided. Values for connections can be: following, following_requested, followed_by, none.
+	 *
+	 * @param string user_id	A comma separated list of user IDs, up to 100 are allowed in a single request.
+	 *
+	 * @return object $this object for further manipulations
+	 */
+	public function getFriendshipsLookupByUserId($user_id)
+	{
+		$params = array();
+	
+		$params['user_id'] = $user_id;
+		
+		$params = $this->validateInputArray($params);
+		
+		$this->results = $this->obcentoRequest->
+			execute('friendships/lookup', $params);
+		
+		return $this; 
 	}
 
 	/**
@@ -448,6 +936,32 @@ class ObcentoTwitter
 	public function fetchArray()
 	{
 		return json_decode($this->results);
+	}
+	
+	private function validateInputArray($array)
+	{
+		$obcentoValidateInput = new ObcentoTwitterValidateInput();
+		
+		//if($contributor_details !== NULL && $this->obcentoValidateInput->check_contributor_details($contributor_details))
+		//if($count !== NULL && $this->obcentoValidateInput->check_count($count))
+		//if($exclude_replies !== NULL && $this->obcentoValidateInput->check_exclude_replies($exclude_replies))
+		//if($include_entities !== NULL && $this->obcentoValidateInput->check_include_entities($include_entities))
+		//if($include_rts !== NULL && $this->obcentoValidateInput->check_include_rts($include_rts))
+		//if($include_user_entities !== NULL && $this->obcentoValidateInput->check_include_user_entities($include_user_entities))
+		//if($max_id !== NULL && $this->obcentoValidateInput->check_max_id($max_id))
+		//if($screen_name !== NULL && $this->obcentoValidateInput->check_screen_name($screen_name))
+		//if($since_id !== NULL && $this->obcentoValidateInput->check_since_id($since_id))
+		//if($trim_user !== NULL && $this->obcentoValidateInput->check_trim_user($trim_user))
+		//if($user_id !== NULL && $this->obcentoValidateInput->check_user_id($user_id))
+		//if($count !== NULL && $this->obcentoValidateInput->check_count($count))
+		
+		$cleanArray = array();
+		foreach($array as $key => $value)
+		{
+			if($value != NULL)
+				$cleanArray[$key] = $value;
+		}
+		return $cleanArray;
 	}
 
 }
