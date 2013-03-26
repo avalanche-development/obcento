@@ -962,12 +962,7 @@ class ObcentoTwitter
 	 */
 	private function clean_parameter_array($array)
 	{
-		foreach($array as $key => $value)
-		{
-			if($value === null) unset($array[$key]);
-		}
-		
-		return $array;
+		return array_filter($array, create_function('$value', 'return $value !== null;'));
 	}
 
 	/**
