@@ -34,9 +34,16 @@ class ObcentoTwitter
 	 * @param	string	$access_token			from dev.twitter.com
 	 * @param	string	$access_token_secret	from dev.twitter.com
 	 */
-	public function __construct($consumer_key, $consumer_secret, $access_token, $access_token_secret)
+	public function __construct($consumer_key = null, $consumer_secret = null, $access_token = null, $access_token_secret = null)
 	{
-		$this->obcentoRequest = new ObcentoTwitterRequest($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+		// if any of the keys are not defined, try to load the config file
+		if($consumer_key === null || $consumer_secret === null || $access_token === null || $access_token_secret === null)
+			require_once self::get_config_filepath();
+		
+		if($consumer_key === null || $consumer_secret === null || $access_token === null || $access_token_secret === null)
+			trigger_error('ObcentoTwitter OAuth credentials were not set in the constructor!');
+		else
+			$this->obcentoRequest = new ObcentoTwitterRequest($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 	}
 
 
@@ -49,9 +56,25 @@ class ObcentoTwitter
 	 * @param	string	$access_token_secret	from dev.twitter.com
 	 * @return	object	new ObcentoTwitter()
 	 */
-	public static function instance($consumer_key, $consumer_secret, $access_token, $access_token_secret)
+	public static function instance($consumer_key = null, $consumer_secret = null, $access_token = null, $access_token_secret = null)
 	{
 		return new ObcentoTwitter($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+	}
+
+	/**
+	 * Static method for pulling the default config file w/ params
+	 *
+	 * @return	string	config filepath
+	 */
+	private static function get_config_filepath()
+	{
+		$path = dirname(__FILE__);
+		$path = explode(DIRECTORY_SEPARATOR, $path);
+		array_pop($path);
+		$path = implode(DIRECTORY_SEPARATOR, $path);
+		$path .= DIRECTORY_SEPARATOR;
+		
+		return "{$path}config.php";
 	}
 
 	/**
@@ -347,8 +370,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 * getRetweetsByTweet
 	 *
@@ -378,7 +400,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
+
 	/**
 	 * getSingleTweetById
 	 *
@@ -413,7 +435,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
+
 	/**
 	 * getOEmbedById:
 	 *
@@ -481,9 +503,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
-	
+
 	/**
 	 * getOEmbedByURL:
 	 *
@@ -557,8 +577,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getSearchTweets(
@@ -592,11 +611,9 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	//-------------------- Skipping the streaming methods for now
-	
-	
+
 	/**
 	 */
 	public function getDirectMessages(
@@ -618,8 +635,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getDirectMessagesSent(
@@ -641,8 +657,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 * getSingleDirectMessage:
 	 *
@@ -665,8 +680,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 *
 	 *
@@ -686,10 +700,9 @@ class ObcentoTwitter
 		
 		$this->process_request('friendships/no_retweets/ids', $parameter_array);
 		
-		return $this; 
+		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getFriendsIdsByUserId(
@@ -707,10 +720,9 @@ class ObcentoTwitter
 		
 		$this->process_request('friendshipts/friends/ids', $parameter_array);
 		
-		return $this; 
+		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getFriendsIdsByScreenName(
@@ -728,10 +740,9 @@ class ObcentoTwitter
 		
 		$this->process_request('followers/ids', $parameter_array);
 		
-		return $this; 
+		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getFollowersIdsByUserId(
@@ -751,8 +762,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 */
 	public function getFollowersIdsByScreenName(
@@ -772,8 +782,7 @@ class ObcentoTwitter
 		
 		return $this;
 	}
-	
-	
+
 	/**
 	 * getFriendshipsLookupByScreenName:
 	 *
@@ -792,10 +801,9 @@ class ObcentoTwitter
 		
 		$this->process_request('friendships/lookup', $parameter_array);
 		
-		return $this; 
+		return $this;
 	}
-	
-	
+
 	/**
 	 * getFriendshipsLookupByUserId:
 	 *
@@ -813,7 +821,7 @@ class ObcentoTwitter
 		
 		$this->process_request('friendships/lookup', $parameter_array);
 		
-		return $this; 
+		return $this;
 	}
 
 	/**
