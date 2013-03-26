@@ -100,11 +100,8 @@ class ObcentoTwitter
 		$parameter_array['trim_user'] = $trim_user;
 		$parameter_array['contributor_details'] = $contributor_details;
 		$parameter_array['include_entities'] = $include_entities;
-			
-		$parameter_array = $this->validateInputArray($parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/mentions_timeline', $parameter_array);
+		$this->process_request('statuses/mentions_timeline', $parameter_array);
 		
 		return $this;
 	}
@@ -937,7 +934,53 @@ class ObcentoTwitter
 	{
 		return json_decode($this->results);
 	}
-	
+
+	/**
+	 * simple abstracted function to process the parameters and validate
+	 *
+	 * @param	string	$method				string path that defines the twitter method
+	 * @param	array	$parameter_array	array of params to pass into twitter
+	 * @return	boolean						boolean on whether or not a request was made
+	 */
+	private function process_request($method, $parameter_array)
+	{
+		$parameter_array = $this->clean_parameter_array($parameter_array);
+		
+		if($this->check_parameter_array($parameter_array) === false)
+			return false;
+		
+		$this->results = $this->obcentoRequest->execute($method, $parameter_array);
+		
+		return true;
+	}
+
+	/**
+	 * goes through the params and removes null (default)
+	 *
+	 * @param	array	$array	array of params, with key => null that needs to be removed
+	 * @return	array			clean array with no null values
+	 */
+	private function clean_parameter_array($array)
+	{
+		foreach($array as $key => $value)
+		{
+			if($value === null) unset($array[$key]);
+		}
+		
+		return $array;
+	}
+
+	/**
+	 * goes through the params and validates
+	 *
+	 * @param	array	$array	array of clean params that need to be checked for validity
+	 * @return	bool			simple true/false if the params are valid
+	 */
+	private function check_parameter_array($array)
+	{
+		return true; // yes, this is a temp
+	}
+
 	private function validateInputArray($array)
 	{
 		$obcentoValidateInput = new ObcentoTwitterValidateInput();
