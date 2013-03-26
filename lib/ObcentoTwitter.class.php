@@ -17,9 +17,9 @@ class ObcentoTwitter
 {
 
 	/**
-	 * $results Holds the results of the twitter request
+	 * $result Holds the results of the twitter request
 	 */
-	private $results;
+	private $result;
 
 	/**
 	 * $obcentoRequest Holds the request class after it is instantiated with the configs
@@ -93,7 +93,6 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['count'] = $count;
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['max_id'] = $max_id;
@@ -159,7 +158,6 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['screen_name'] = $screen_name;
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['count'] = $count;
@@ -168,11 +166,8 @@ class ObcentoTwitter
 		$parameter_array['exclude_replies'] = $exclude_replies;
 		$parameter_array['contributor_details'] = $contributor_details;
 		$parameter_array['include_rts'] = $include_rts;
-			
-		$parameter_array = $this->validateInputArray($parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/user_timeline', $parameter_array);
+		$this->process_request('statuses/user_timeline', $parameter_array);
 		
 		return $this;
 	}
@@ -230,7 +225,6 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['user_id'] = $user_id;
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['count'] = $count;
@@ -239,11 +233,8 @@ class ObcentoTwitter
 		$parameter_array['exclude_replies'] = $exclude_replies;
 		$parameter_array['contributor_details'] = $contributor_details;
 		$parameter_array['include_rts'] = $include_rts;
-			
-		$parameter_array = $this->validateInputArray($parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/user_timeline', $parameter_array);
+		$this->process_request('statuses/user_timelin', $parameter_array);
 		
 		return $this;
 	}
@@ -294,7 +285,6 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['count'] = $count;
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['max_id'] = $max_id;
@@ -302,11 +292,8 @@ class ObcentoTwitter
 		$parameter_array['exclude_replies'] = $exclude_replies;
 		$parameter_array['contributor_details'] = $contributor_details;
 		$parameter_array['include_entities'] = $include_entities;
-			
-		$parameter_array = $this->validateInputArray($parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/home_timeline', $parameter_array);
+		$this->process_request('statuses/home_timeline', $parameter_array);
 		
 		return $this;
 	}
@@ -349,7 +336,6 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['count'] = $count;
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['max_id'] = $max_id;
@@ -357,10 +343,7 @@ class ObcentoTwitter
 		$parameter_array['include_entities'] = $include_entities;
 		$parameter_array['include_user_entities'] = $include_user_entities;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/retweets_of_me', $parameter_array);
+		$this->process_request('statuses/retweets_of_me', $parameter_array);
 		
 		return $this;
 	}
@@ -388,17 +371,10 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
-		//validate
-		
-		$parameter_array['id'] = $id;
 		$parameter_array['count'] = $count;
 		$parameter_array['trim_user'] = $trim_user;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/retweets'.$id, $parameter_array);
+		$this->process_tweet_request('statuses/retweets', $id, $parameter_array);
 		
 		return $this;
 	}
@@ -429,18 +405,11 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
-		//validate!
-		
-		$parameter_array['id'] = $id;
 		$parameter_array['trim_user'] = $trim_user;
 		$parameter_array['include_my_retweet'] = $include_my_retweet;
 		$parameter_array['include_entities'] = $include_entities;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('statuses/show'.$id, $parameter_array);
+		$this->process_tweet_request('statuses/show', $id, $parameter_array);
 		
 		return $this;
 	}
@@ -498,11 +467,7 @@ class ObcentoTwitter
 		       $lang = NULL
 	)
 	{
-	
 		$parameter_array = array();
-		
-		//validate!
-	
 		$parameter_array['id'] = $id;
 		$parameter_array['maxwidth'] = $maxwidth;
 		$parameter_array['hide_media'] = $hide_media;
@@ -511,12 +476,9 @@ class ObcentoTwitter
 		$parameter_array['align'] = $align;
 		$parameter_array['related'] = $related;
 		$parameter_array['lang'] = $lang;
-	
-		$parameter_array = $this->validateInputArray($parameter_array);
-	
-		$this->results = $this->obcentoRequest->
-			execute('statuses/oembed', $parameter_array);
-			
+		
+		$this->process_request('statuses/oembed', $parameter_array);
+		
 		return $this;
 	}
 	
@@ -581,11 +543,7 @@ class ObcentoTwitter
 		       $lang = NULL
 	)
 	{
-	
 		$parameter_array = array();
-		
-		//validate!
-	
 		$parameter_array['url'] = $url;
 		$parameter_array['maxwidth'] = $maxwidth;
 		$parameter_array['hide_media'] = $hide_media;
@@ -594,12 +552,9 @@ class ObcentoTwitter
 		$parameter_array['align'] = $align;
 		$parameter_array['related'] = $related;
 		$parameter_array['lang'] = $lang;
-	
-		$parameter_array = $this->validateInputArray($parameter_array);
-	
-		$this->results = $this->obcentoRequest->
-			execute('statuses/oembed', $parameter_array);
-			
+		
+		$this->process_request('statuses/oembed', $parameter_array);
+		
 		return $this;
 	}
 	
@@ -620,11 +575,7 @@ class ObcentoTwitter
 				$callback = NULL
 	)
 	{
-	
 		$parameter_array = array();
-		
-		//validate!
-	
 		$parameter_array['q'] = $q;
 		$parameter_array['geocode'] = $geocode;
 		$parameter_array['lang'] = $lang;
@@ -637,10 +588,7 @@ class ObcentoTwitter
 		$parameter_array['include_entities'] = $include_entities;
 		$parameter_array['callback'] = $callback;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-	
-		$this->results = $this->obcentoRequest->
-			execute('search/tweets', $parameter_array);
+		$this->process_request('search/tweets', $parameter_array);
 		
 		return $this;
 	}
@@ -660,17 +608,13 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-		
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['max_id'] = $max_id;
 		$parameter_array['count'] = $count;
 		$parameter_array['include_entities'] = $include_entities;
 		$parameter_array['skip_status'] = $skip_status;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-	
-		$this->results = $this->obcentoRequest->
-			execute('direct_messages', $parameter_array);
+		$this->process_request('direct_messages', $parameter_array);
 		
 		return $this;
 	}
@@ -687,18 +631,14 @@ class ObcentoTwitter
 	)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['since_id'] = $since_id;
 		$parameter_array['max_id'] = $max_id;
 		$parameter_array['count'] = $count;
 		$parameter_array['page'] = $page;
 		$parameter_array['include_entities'] = $include_entities;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
+		$this->process_request('direct_messages/sent', $parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('direct_messages/sent', $parameter_array);
-			
 		return $this;
 	}
 	
@@ -719,15 +659,9 @@ class ObcentoTwitter
 	public function getSingleDirectMessage($id)
 	{
 		$parameter_array = array();
-		
-		//validate!
-	
 		$parameter_array['id'] = $id;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('direct_messages/show', $parameter_array);
+		$this->process_request('direct_messages/show', $parameter_array);
 		
 		return $this;
 	}
@@ -745,18 +679,12 @@ class ObcentoTwitter
 	 *
 	 * @return object $this object for further manipulations
 	 */
-	public function getBlockedRetweetIds($stringify_ids)
+	public function getBlockedRetweetIds($stringify_ids = true)
 	{
 		$parameter_array = array();
-		
-		//validate!
-	
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('friendships/no_retweets/ids', $parameter_array);
+		$this->process_request('friendships/no_retweets/ids', $parameter_array);
 		
 		return $this; 
 	}
@@ -765,23 +693,19 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFriendsIdsByUserId(
-			  $user_id = NULL,
+			  $user_id		 ,
 			   $cursor = NULL,
 		$stringify_ids = NULL,
 				$count = NULL
 	)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['user_id'] = $user_id;
 		$parameter_array['cursor'] = $cursor;
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		$parameter_array['count'] = $count;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('friendships/friends/ids', $parameter_array);
+		$this->process_request('friendshipts/friends/ids', $parameter_array);
 		
 		return $this; 
 	}
@@ -790,23 +714,19 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFriendsIdsByScreenName(
-		  $screen_name = NULL,
+		  $screen_name		 ,
 			   $cursor = NULL,
 		$stringify_ids = NULL,
 				$count = NULL
 	)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['user_id'] = $user_id;
 		$parameter_array['cursor'] = $cursor;
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		$parameter_array['count'] = $count;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('followers/ids', $parameter_array);
+		$this->process_request('followers/ids', $parameter_array);
 		
 		return $this; 
 	}
@@ -815,50 +735,42 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFollowersIdsByUserId(
-			  $user_id = NULL,
+			  $user_id		 ,
 			   $cursor = NULL,
 		$stringify_ids = NULL,
 				$count = NULL
 	)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['user_id'] = $user_id;
 		$parameter_array['cursor'] = $cursor;
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		$parameter_array['count'] = $count;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
+		$this->process_request('followers/ids', $parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('followers/ids', $parameter_array);
-		
-		return $this; 
+		return $this;
 	}
 	
 	
 	/**
 	 */
 	public function getFollowersIdsByScreenName(
-		  $screen_name = NULL,
+		  $screen_name		 ,
 			   $cursor = NULL,
 		$stringify_ids = NULL,
 				$count = NULL
 	)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['screen_name'] = $screen_name;
 		$parameter_array['cursor'] = $cursor;
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		$parameter_array['count'] = $count;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
+		$this->process_request('friendships/friends/ids', $parameter_array);
 		
-		$this->results = $this->obcentoRequest->
-			execute('friendships/friends/ids', $parameter_array);
-		
-		return $this; 
+		return $this;
 	}
 	
 	
@@ -872,16 +784,13 @@ class ObcentoTwitter
 	 *
 	 * @return object $this object for further manipulations
 	 */
+	// @todo screen separated? we may want to look into this
 	public function getFriendshipsLookupByScreenName($screen_name)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['screen_name'] = $screen_name;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('friendships/lookup', $parameter_array);
+		$this->process_request('friendships/lookup', $parameter_array);
 		
 		return $this; 
 	}
@@ -900,13 +809,9 @@ class ObcentoTwitter
 	public function getFriendshipsLookupByUserId($user_id)
 	{
 		$parameter_array = array();
-	
 		$parameter_array['user_id'] = $user_id;
 		
-		$parameter_array = $this->validateInputArray($parameter_array);
-		
-		$this->results = $this->obcentoRequest->
-			execute('friendships/lookup', $parameter_array);
+		$this->process_request('friendships/lookup', $parameter_array);
 		
 		return $this; 
 	}
@@ -916,7 +821,7 @@ class ObcentoTwitter
 	 */
 	public function fetchJSON()
 	{
-		return $this->results;
+		return $this->result;
 	}
 
 	/**
@@ -932,7 +837,7 @@ class ObcentoTwitter
 	 */
 	public function fetchArray()
 	{
-		return json_decode($this->results);
+		return json_decode($this->result);
 	}
 
 	/**
@@ -949,9 +854,23 @@ class ObcentoTwitter
 		if($this->check_parameter_array($parameter_array) === false)
 			return false;
 		
-		$this->results = $this->obcentoRequest->execute($method, $parameter_array);
+		$this->result = $this->obcentoRequest->execute($method, $parameter_array);
 		
 		return true;
+	}
+
+	/**
+	 * special case abstract function with the tweet id is part of the request endpoint
+	 *
+	 * @param	string	$method				string path that defines the main twitter method
+	 * @param	int		$id					tweet id that needs to be validated
+	 * @return	boolean						boolean on whether or not a request was made
+	 */
+	private function process_tweet_request($method, $id, $parameter_array)
+	{
+		// @todo add id validation
+		
+		return $this->process_request("{$method}/{$id}", $parameter_array);
 	}
 
 	/**
