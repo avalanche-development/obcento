@@ -107,12 +107,12 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getMentionsTimeline(
-	               $count = NULL,
-	            $since_id = NULL,
-	              $max_id = NULL,
-	           $trim_user = NULL,
-	 $contributor_details = NULL,
-	    $include_entities = NULL
+		$count = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
+		$trim_user = NULL,
+		$contributor_details = NULL,
+		$include_entities = NULL
 	)
 	{
 		$parameter_array = array();
@@ -170,14 +170,14 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getUserTimeline(
-		        $screen_name = NULL,
-		           $since_id = NULL,
-		              $count = NULL,
-		             $max_id = NULL,
-		          $trim_user = NULL,
-		    $exclude_replies = NULL,
+		$screen_name = NULL,
+		$since_id = NULL,
+		$count = NULL,
+		$max_id = NULL,
+		$trim_user = NULL,
+		$exclude_replies = NULL,
 		$contributor_details = NULL,
-		        $include_rts = NULL
+		$include_rts = NULL
 	)
 	{
 		$parameter_array = array();
@@ -237,14 +237,14 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getUserTimelineByUserId(
-		            $user_id,
-		           $since_id = NULL,
-		              $count = NULL,
-		             $max_id = NULL,
-		          $trim_user = NULL,
-		    $exclude_replies = NULL,
+		$user_id,
+		$since_id = NULL,
+		$count = NULL,
+		$max_id = NULL,
+		$trim_user = NULL,
+		$exclude_replies = NULL,
 		$contributor_details = NULL,
-		        $include_rts = NULL
+		$include_rts = NULL
 	)
 	{
 		$parameter_array = array();
@@ -298,13 +298,13 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getHomeTimeline(
-		              $count = NULL,
-		           $since_id = NULL,
-		             $max_id = NULL,
-		          $trim_user = NULL,
-		    $exclude_replies = NULL,
+		$count = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
+		$trim_user = NULL,
+		$exclude_replies = NULL,
 		$contributor_details = NULL,
-		   $include_entities = NULL
+		$include_entities = NULL
 	)
 	{
 		$parameter_array = array();
@@ -350,11 +350,11 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getRetweetsOfMe(
-		                $count = NULL,
-		             $since_id = NULL,
-		               $max_id = NULL,
-		            $trim_user = NULL,
-		     $include_entities = NULL,
+		$count = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
+		$trim_user = NULL,
+		$include_entities = NULL,
 		$include_user_entities = NULL
 	)
 	{
@@ -387,9 +387,9 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getRetweetsByTweet(
-						   $id		 ,
-		                $count = NULL,
-		            $trim_user = NULL
+		$id,
+		$count = NULL,
+		$trim_user = NULL
 	)
 	{
 		$parameter_array = array();
@@ -420,10 +420,10 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getSingleTweetById(
-						   $id		 ,
-		            $trim_user = NULL,
-		   $include_my_retweet = NULL,
-		     $include_entities = NULL
+		$id,
+		$trim_user = NULL,
+		$include_my_retweet = NULL,
+		$include_entities = NULL
 	)
 	{
 		$parameter_array = array();
@@ -479,14 +479,14 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getOEmbedById(
-				$id		   ,
-		   $maxwidth = NULL,
-		 $hide_media = NULL,
+		$id,
+		$maxwidth = NULL,
+		$hide_media = NULL,
 		$hide_thread = NULL,
 		$omit_script = NULL,
-		      $align = NULL,
-		    $related = NULL,
-		       $lang = NULL
+		$align = NULL,
+		$related = NULL,
+		$lang = NULL
 	)
 	{
 		$parameter_array = array();
@@ -553,14 +553,14 @@ class ObcentoTwitter
 	 * @return object $this object for further manipulations
 	 */
 	public function getOEmbedByURL(
-				$url	   ,
-		   $maxwidth = NULL,
-		 $hide_media = NULL,
+		$url,
+		$maxwidth = NULL,
+		$hide_media = NULL,
 		$hide_thread = NULL,
 		$omit_script = NULL,
-		      $align = NULL,
-		    $related = NULL,
-		       $lang = NULL
+		$align = NULL,
+		$related = NULL,
+		$lang = NULL
 	)
 	{
 		$parameter_array = array();
@@ -581,17 +581,17 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getSearchTweets(
-					   $q		,
-				 $geocode = NULL,
-					$lang = NULL,
-				  $locale = NULL,
-			 $result_type = NULL,
-				   $count = NULL,
-				   $until = NULL,
-				$since_id = NULL,
-				  $max_id = NULL,
+		$q,
+		$geocode = NULL,
+		$lang = NULL,
+		$locale = NULL,
+		$result_type = NULL,
+		$count = NULL,
+		$until = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
 		$include_entities = NULL,
-				$callback = NULL
+		$callback = NULL
 	)
 	{
 		$parameter_array = array();
@@ -617,11 +617,11 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getDirectMessages(
-				$since_id = NULL,
-				  $max_id = NULL,
-				   $count = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
+		$count = NULL,
 		$include_entities = NULL,
-			 $skip_status = NULL
+		$skip_status = NULL
 	)
 	{
 		$parameter_array = array();
@@ -639,10 +639,10 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getDirectMessagesSent(
-				$since_id = NULL,
-				  $max_id = NULL,
-				   $count = NULL,
-					$page = NULL,
+		$since_id = NULL,
+		$max_id = NULL,
+		$count = NULL,
+		$page = NULL,
 		$include_entities = NULL
 	)
 	{
@@ -706,10 +706,10 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFriendsIdsByUserId(
-			  $user_id		 ,
-			   $cursor = NULL,
+		$user_id,
+		$cursor = NULL,
 		$stringify_ids = NULL,
-				$count = NULL
+		$count = NULL
 	)
 	{
 		$parameter_array = array();
@@ -726,14 +726,14 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFriendsIdsByScreenName(
-		  $screen_name		 ,
-			   $cursor = NULL,
+		$screen_name,
+		$cursor = NULL,
 		$stringify_ids = NULL,
-				$count = NULL
+		$count = NULL
 	)
 	{
 		$parameter_array = array();
-		$parameter_array['user_id'] = $user_id;
+		$parameter_array['screen_name'] = $screen_name;
 		$parameter_array['cursor'] = $cursor;
 		$parameter_array['stringify_ids'] = $stringify_ids;
 		$parameter_array['count'] = $count;
@@ -746,10 +746,10 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFollowersIdsByUserId(
-			  $user_id		 ,
-			   $cursor = NULL,
+		$user_id,
+		$cursor = NULL,
 		$stringify_ids = NULL,
-				$count = NULL
+		$count = NULL
 	)
 	{
 		$parameter_array = array();
@@ -766,10 +766,10 @@ class ObcentoTwitter
 	/**
 	 */
 	public function getFollowersIdsByScreenName(
-		  $screen_name		 ,
-			   $cursor = NULL,
+		$screen_name,
+		$cursor = NULL,
 		$stringify_ids = NULL,
-				$count = NULL
+		$count = NULL
 	)
 	{
 		$parameter_array = array();
@@ -789,7 +789,7 @@ class ObcentoTwitter
 	 * Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or 
 	 * user_ids provided. Values for connections can be: following, following_requested, followed_by, none.
 	 *
-	 * @param string screen_name	A comma separated list of screen names, up to 100 are allowed in a single request.
+	 * @param string $screen_name	A comma separated list of screen names, up to 100 are allowed in a single request.
 	 *
 	 * @return object $this object for further manipulations
 	 */
@@ -810,7 +810,7 @@ class ObcentoTwitter
 	 * Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or 
 	 * user_ids provided. Values for connections can be: following, following_requested, followed_by, none.
 	 *
-	 * @param string user_id	A comma separated list of user IDs, up to 100 are allowed in a single request.
+	 * @param string $user_id	A comma separated list of user IDs, up to 100 are allowed in a single request.
 	 *
 	 * @return object $this object for further manipulations
 	 */
@@ -823,6 +823,1200 @@ class ObcentoTwitter
 		
 		return $this;
 	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendshipsIncoming(
+		$cursor = NULL,
+		$stringify_ids = NULL
+	)
+	{
+		$params = array();
+
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friendships/incoming', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendshipsOutgoing(
+		$cursor = NULL,
+		$stringify_ids = NULL
+	)
+	{
+		$params = array();
+
+		$params['cursor'] = $cursor;
+		$params['stringify_ids'] = $stringify_ids;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friendships/outgoing', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendshipsDetailsById(
+		$source_id = NULL,
+		$target_id = NULL
+	)
+	{
+		$params = array();
+
+		$params['source_id'] = $source_id;
+		$params['target_id'] = $target_id;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friendships/show', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendshipsDetailsByScreenName(
+		$source_screen_name = NULL,
+		$target_screen_name = NULL
+	)
+	{
+		$params = array();
+
+		$params['source_screen_name'] = $source_screen_name;
+		$params['target_screen_name'] = $target_screen_name;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friendships/show', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendsListById(
+		$user_id = NULL,
+		$cursor = NULL,
+		$skip_status = NULL,
+		$include_user_entities = NULL
+	)
+	{
+		$params = array();
+
+		$params['user_id'] = $user_id;
+		$params['cursor'] = $cursor;
+		$params['skip_status'] = $skip_status;
+		$params['include_user_entities'] = $include_user_entities;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friends/list', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFriendsListByScreenName(
+		$screen_name = NULL,
+		$cursor = NULL,
+		$skip_status = NULL,
+		$include_user_entities = NULL
+	)
+	{
+		$params = array();
+
+		$params['screen_name'] = $screen_name;
+		$params['cursor'] = $cursor;
+		$params['skip_status'] = $skip_status;
+		$params['include_user_entities'] = $include_user_entities;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('friends/list', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFollowersListById(
+		$user_id       ,
+		$cursor = NULL,
+		$skip_status = NULL,
+		$include_user_entities = NULL
+	)
+	{
+		$params = array();
+
+		$params['user_id'] = $user_id;
+		$params['cursor'] = $cursor;
+		$params['skip_status'] = $skip_status;
+		$params['include_user_entities'] = $include_user_entities;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('followers/list', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 *
+	 */
+	public function getFollowersListByScreenName(
+		$screen_name,
+		$cursor = NULL,
+		$skip_status = NULL,
+		$include_user_entities = NULL
+	)
+	{
+		$params = array();
+
+		$params['screen_name'] = $screen_name;
+		$params['cursor'] = $cursor;
+		$params['skip_status'] = $skip_status;
+		$params['include_user_entities'] = $include_user_entities;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('followers/list', $params);
+
+		return $this;
+	}
+
+
+	// User functions
+
+	/**
+	 * getAccountSettings:
+	 *
+	 * Returns settings (including current trend, geo and sleep time information) for the authenticating user.
+	 */
+	public function getAccountSettings(){
+
+		$this->process_request('account/settings', array());
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getVerifyCredentials(
+		$include_entities = NULL,
+		$skip_status = NULL
+	)
+	{
+		$params = array();
+
+		$params['include_entities'] = $include_entities;
+		$params['skip_status'] = $skip_status;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('account/verify_credentials', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getBlocksList(
+		$include_entities = NULL,
+		$skip_status = NULL,
+		$cursor = NULL
+	)
+	{
+		$params = array();
+
+		$params['include_entities'] = $include_entities;
+		$params['skip_status'] = $skip_status;
+		$params['cursor'] = $cursor;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('blocks/list', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $stringify_ids
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getBlocksIds(
+		$stringify_ids = NULL,
+		$cursor = NULL
+	)
+	{
+		$params = array();
+
+		$params['stringify_ids'] = $stringify_ids;
+		$params['cursor'] = $cursor;
+
+		$params = $this->validateInputArray($params);
+
+		$this->process_request('blocks/ids', $params);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getUsersLookupByScreenName(
+		$screen_name = null,
+		$include_entities = null
+	)
+	{
+		$parameter_array = array();
+
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['include_entities'] = $include_entities;
+
+		$parameter_array = $this->validateInputArray($parameter_array);
+
+		$this->results = $this->process_request('users/lookup', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getUsersLookupByUserID(
+		$user_id = null,
+		$include_entities = null
+	)
+	{
+		$parameter_array = array();
+
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['include_entities'] = $include_entities;
+
+		$parameter_array = $this->validateInputArray($parameter_array);
+
+		$this->results = $this->process_request('users/lookup', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getUsersShowByID(
+		$user_id  = null,
+		$include_entities  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['include_entities'] = $include_entities;
+
+		$this->process_request('users/show', $parameter_array);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getUsersShowByScreenName(
+		$screen_name  = null,
+		$include_entities  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['include_entities'] = $include_entities;
+
+		$this->process_request('users/show', $parameter_array);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $q
+	 * @param null $page
+	 * @param null $count
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getUsersSearch(
+		$q = null,
+		$page = null,
+		$count = null,
+		$include_entities = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['q'] = $q;
+		$parameter_array['page'] = $page;
+		$parameter_array['count'] = $count;
+		$parameter_array['include_entities'] = $include_entities;
+
+		$this->process_request('users/search', $parameter_array);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getUsersContributeesByID(
+		$user_id = null,
+		$include_entities = null,
+		$skip_status = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+
+		$this->process_request('users/contributees', $parameter_array);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getUsersContributeesByScreenName(
+		$screen_name = null,
+		$include_entities = null,
+		$skip_status = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+
+		$this->process_request('users/contributees', $parameter_array);
+
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getUsersContributorsByID(
+		$user_id  = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('users/contributors', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getUsersContributorsScreenName(
+		$screen_name  = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('users/contributors', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @return $this
+	 */
+	public function getUsersProfileBannerByID(
+		$user_id  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$this->process_request('users/profile_banner', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @return $this
+	 */
+	public function getUsersProfileBannerScreenName(
+		$screen_name  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$this->process_request('users/profile_banner', $parameter_array);
+		return $this;
+	}
+
+	/*public function getUsersSuggestionsBySlug(
+		$slug = null,
+		$lang = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['slug'] = $slug;
+		$parameter_array['lang'] = $lang;
+		$this->process_request('users/suggestions/%3Aslug', $parameter_array);
+		return $this;
+	}*/
+
+
+	/**
+	 * @param null $lang
+	 * @return $this
+	 */
+	public function getUsersSuggestions(
+		$lang  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['lang'] = $lang;
+		$this->process_request('users/suggestions', $parameter_array);
+		return $this;
+	}
+
+	/*public function getUsersSuggestions%3AslugMembers(
+		$slug  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['slug'] = $slug;
+		$this->process_request('users/suggestions/%3Aslug/members', $parameter_array);
+		return $this;
+	}*/
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $count
+	 * @param null $since_id
+	 * @param null $max_id
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getFavoritesListByID(
+		$user_id  = null,
+		$count  = null,
+		$since_id  = null,
+		$max_id  = null,
+		$include_entities  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['count'] = $count;
+		$parameter_array['since_id'] = $since_id;
+		$parameter_array['max_id'] = $max_id;
+		$parameter_array['include_entities'] = $include_entities;
+		$this->process_request('favorites/list', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $count
+	 * @param null $since_id
+	 * @param null $max_id
+	 * @param null $include_entities
+	 * @return $this
+	 */
+	public function getFavoritesListByScreenName(
+		$screen_name  = null,
+		$count  = null,
+		$since_id  = null,
+		$max_id  = null,
+		$include_entities  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['count'] = $count;
+		$parameter_array['since_id'] = $since_id;
+		$parameter_array['max_id'] = $max_id;
+		$parameter_array['include_entities'] = $include_entities;
+		$this->process_request('favorites/list', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $reverse
+	 * @return $this
+	 */
+	public function getListsListByID(
+		$user_id  = null,
+		$reverse  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['reverse'] = $reverse;
+		$this->process_request('lists/list', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $reverse
+	 * @return $this
+	 */
+	public function getListsListByScreenName(
+		$screen_name  = null,
+		$reverse  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['reverse'] = $reverse;
+		$this->process_request('lists/list', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @param null $since_id
+	 * @param null $max_id
+	 * @param null $count
+	 * @param null $include_entities
+	 * @param null $include_rts
+	 * @return $this
+	 */
+	public function getListsStatuses(
+		$list_id  = null,
+		$slug  = null,
+		$owner_screen_name  = null,
+		$owner_id  = null,
+		$since_id  = null,
+		$max_id  = null,
+		$count  = null,
+		$include_entities  = null,
+		$include_rts  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$parameter_array['since_id'] = $since_id;
+		$parameter_array['max_id'] = $max_id;
+		$parameter_array['count'] = $count;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['include_rts'] = $include_rts;
+		$this->process_request('lists/statuses', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $cursor
+	 * @param null $filter_to_owned_lists
+	 * @return $this
+	 */
+	public function getListsMembershipsByID(
+		$user_id  = null,
+		$cursor  = null,
+		$filter_to_owned_lists  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['cursor'] = $cursor;
+		$parameter_array['filter_to_owned_lists'] = $filter_to_owned_lists;
+		$this->process_request('lists/memberships', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $cursor
+	 * @param null $filter_to_owned_lists
+	 * @return $this
+	 */
+	public function getListsMembershipsByScreenName(
+		$screen_name  = null,
+		$cursor  = null,
+		$filter_to_owned_lists  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['cursor'] = $cursor;
+		$parameter_array['filter_to_owned_lists'] = $filter_to_owned_lists;
+		$this->process_request('lists/memberships', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @param null $cursor
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getListsSubscribers(
+		$list_id  = null,
+		$slug  = null,
+		$owner_screen_name  = null,
+		$owner_id  = null,
+		$cursor  = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$parameter_array['cursor'] = $cursor;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('lists/subscribers', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $user_id
+	 * @param null $screen_name
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getListsSubscribersShow(
+		$owner_screen_name  = null,
+		$owner_id  = null,
+		$list_id  = null,
+		$slug  = null,
+		$user_id  = null,
+		$screen_name  = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('lists/subscribers/show', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $user_id
+	 * @param null $screen_name
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getListsMembersShow(
+		$list_id  = null,
+		$slug  = null,
+		$user_id  = null,
+		$screen_name  = null,
+		$owner_screen_name  = null,
+		$owner_id  = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('lists/members/show', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @param null $cursor
+	 * @param null $include_entities
+	 * @param null $skip_status
+	 * @return $this
+	 */
+	public function getListsMembers(
+		$list_id  = null,
+		$slug  = null,
+		$owner_screen_name  = null,
+		$owner_id  = null,
+		$cursor = null,
+		$include_entities  = null,
+		$skip_status  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$parameter_array['cursor'] = $cursor;
+		$parameter_array['include_entities'] = $include_entities;
+		$parameter_array['skip_status'] = $skip_status;
+		$this->process_request('lists/members', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $list_id
+	 * @param null $slug
+	 * @param null $owner_screen_name
+	 * @param null $owner_id
+	 * @return $this
+	 */
+	public function getListsShow(
+		$list_id  = null,
+		$slug  = null,
+		$owner_screen_name  = null,
+		$owner_id  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['list_id'] = $list_id;
+		$parameter_array['slug'] = $slug;
+		$parameter_array['owner_screen_name'] = $owner_screen_name;
+		$parameter_array['owner_id'] = $owner_id;
+		$this->process_request('lists/show', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $count
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getListsSubscriptionsByID(
+		$user_id  = null,
+		$count  = null,
+		$cursor  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['count'] = $count;
+		$parameter_array['cursor'] = $cursor;
+		$this->process_request('lists/subscriptions', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $count
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getListsSubscriptionsByScreenName(
+		$screen_name  = null,
+		$count  = null,
+		$cursor  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['count'] = $count;
+		$parameter_array['cursor'] = $cursor;
+		$this->process_request('lists/subscriptions', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $user_id
+	 * @param null $count
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getListsOwnershipsByID(
+		$user_id  = null,
+		$count  = null,
+		$cursor  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['user_id'] = $user_id;
+		$parameter_array['count'] = $count;
+		$parameter_array['cursor'] = $cursor;
+		$this->process_request('lists/ownerships', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $screen_name
+	 * @param null $count
+	 * @param null $cursor
+	 * @return $this
+	 */
+	public function getListsOwnershipsByScreenName(
+		$screen_name  = null,
+		$count  = null,
+		$cursor  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['screen_name'] = $screen_name;
+		$parameter_array['count'] = $count;
+		$parameter_array['cursor'] = $cursor;
+		$this->process_request('lists/ownerships', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @return $this
+	 */
+	public function getSavedSearchesList()
+	{
+		$parameter_array = array();
+		$this->process_request('saved_searches/list', $parameter_array);
+		return $this;
+	}
+
+
+	/*public function getSavedSearchesShowByID(
+		$id  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['id'] = $id;
+		$this->process_request('saved_searches/show/%3Aid', $parameter_array);
+		return $this;
+	}*/
+
+
+	/*public function getGeoIdByPlaceID(
+		$place_id  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['place_id'] = $place_id;
+		$this->process_request('geo/id/%3Aplace_id', $parameter_array);
+		return $this;
+	}*/
+
+
+	/**
+	 * @param null $lat
+	 * @param null $long
+	 * @param null $accuracy
+	 * @param null $granularity
+	 * @param null $max_results
+	 * @param null $callback
+	 * @return $this
+	 */
+	public function getGeoReverseGeocode(
+		$lat  = null,
+		$long  = null,
+		$accuracy  = null,
+		$granularity  = null,
+		$max_results  = null,
+		$callback  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['lat'] = $lat;
+		$parameter_array['long'] = $long;
+		$parameter_array['accuracy'] = $accuracy;
+		$parameter_array['granularity'] = $granularity;
+		$parameter_array['max_results'] = $max_results;
+		$parameter_array['callback'] = $callback;
+		$this->process_request('geo/reverse_geocode', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $lat
+	 * @param null $long
+	 * @param null $query
+	 * @param null $ip
+	 * @param null $granularity
+	 * @param null $accuracy
+	 * @param null $max_results
+	 * @param null $contained_within
+	 * @param null $attributeStreet_address
+	 * @param null $callback
+	 * @return $this
+	 */
+	public function getGeoSearch(
+		$lat  = null,
+		$long  = null,
+		$query  = null,
+		$ip  = null,
+		$granularity  = null,
+		$accuracy  = null,
+		$max_results  = null,
+		$contained_within  = null,
+		$attributeStreet_address  = null,
+		$callback  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['lat'] = $lat;
+		$parameter_array['long'] = $long;
+		$parameter_array['query'] = $query;
+		$parameter_array['ip'] = $ip;
+		$parameter_array['granularity'] = $granularity;
+		$parameter_array['accuracy'] = $accuracy;
+		$parameter_array['max_results'] = $max_results;
+		$parameter_array['contained_within'] = $contained_within;
+		$parameter_array['attribute:street_address'] = $attributeStreet_address;
+		$parameter_array['callback'] = $callback;
+		$this->process_request('geo/search', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $lat
+	 * @param null $long
+	 * @param null $name
+	 * @param null $contained_within
+	 * @param null $attributeStreet_address
+	 * @param null $callback
+	 * @return $this
+	 */
+	public function getGeoSimilarPlaces(
+		$lat  = null,
+		$long  = null,
+		$name  = null,
+		$contained_within  = null,
+		$attributeStreet_address  = null,
+		$callback  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['lat'] = $lat;
+		$parameter_array['long'] = $long;
+		$parameter_array['name'] = $name;
+		$parameter_array['contained_within'] = $contained_within;
+		$parameter_array['attribute:street_address'] = $attributeStreet_address;
+		$parameter_array['callback'] = $callback;
+		$this->process_request('geo/similar_places', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $id
+	 * @param null $exclude
+	 * @return $this
+	 */
+	public function getTrendsPlace(
+		$id  = null,
+		$exclude  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['id'] = $id;
+		$parameter_array['exclude'] = $exclude;
+		$this->process_request('trends/place', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @return $this
+	 */
+	public function getTrendsAvailable()
+	{
+		$parameter_array = array();
+		$this->process_request('trends/available', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $lat
+	 * @param null $long
+	 * @return $this
+	 */
+	public function getTrendsClosest(
+		$lat  = null,
+		$long  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['lat'] = $lat;
+		$parameter_array['long'] = $long;
+		$this->process_request('trends/closest', $parameter_array);
+		return $this;
+	}
+
+	/**
+	 * @return $this
+	 */
+	public function getHelpConfiguration()
+	{
+		$parameter_array = array();
+		$this->process_request('help/configuration', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @return $this
+	 */
+	public function getHelpLanguages()
+	{
+		$parameter_array = array();
+		$this->process_request('help/languages', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @return $this
+	 */
+	public function getHelpPrivacy()
+	{
+		$parameter_array = array();
+		$this->process_request('help/privacy', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @return $this
+	 */
+	public function getHelpTos()
+	{
+		$parameter_array = array();
+		$this->process_request('help/tos', $parameter_array);
+		return $this;
+	}
+
+
+	/**
+	 * @param null $resources
+	 * @return $this
+	 */
+	public function getApplicationRateLimitStatus(
+		$resources  = null
+	)
+	{
+		$parameter_array = array();
+		$parameter_array['resources'] = $resources;
+		$this->process_request('application/rate_limit_status', $parameter_array);
+		return $this;
+	}
+
 
 	/**
 	 * @return string JSON String of the data from Twitter
@@ -868,6 +2062,8 @@ class ObcentoTwitter
 	}
 
 	/**
+	 * process_tweet_request
+	 *
 	 * special case abstract function with the tweet id is part of the request endpoint
 	 *
 	 * @param	string	$method				string path that defines the main twitter method
